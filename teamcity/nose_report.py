@@ -51,3 +51,6 @@ class TeamcityReport(TeamcityTestResult):
 
     def stopContext(self, ctx):
         self.messages.testSuiteFinished(self.getCtxName(ctx))
+
+    def addSkip(self, test):
+        return super(TeamcityReport, self).addSkip(test, '')
