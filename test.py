@@ -81,7 +81,10 @@ def run(fw, temp):
 
     from test_support import virtualenv
 
-    # virtualenv.logger = virtualenv.Logger([(virtualenv.Logger.DEBUG, sys.stdout)])
+    debug_logging = False
+    if debug_logging:
+        virtualenv.logger = virtualenv.Logger([(virtualenv.Logger.DEBUG,
+                                               sys.stdout)])
     virtualenv.DISTRIBUTE_SETUP_PY = virtualenv.DISTRIBUTE_SETUP_PY.replace("0.6.28", "0.6.34")
     virtualenv.create_environment(venv, use_distribute=True,
                                   never_download=True, search_dirs=[eggs])
