@@ -57,6 +57,11 @@ class TeamcityTestResult(TestResult):
         self.messages.testFailed(self.getTestName(test),
                                  message='Error', details=err)
 
+    def addSkip(self, test, reason):
+        TestResult.addSkip(self, test, reason)
+
+        self.messages.testIgnored(self.getTestName(test), message=reason)
+
     def addFailure(self, test, err, *k):
         # workaround nose bug on python 3
         if _is_string(err[1]):
