@@ -7,3 +7,4 @@ teamcity_messages.egg-info
 test/__pycache__
 test/*.tmp
 test_support/distribute-*.egg
+.svn
